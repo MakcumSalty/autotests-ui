@@ -36,5 +36,5 @@ with sync_playwright() as playwright:
     expect(header).to_be_visible()  # Проверяем видимость элемента
     expect(header).to_have_text("Dashboard")  # Проверяем текст
 
-    page.wait_for_timeout(5000)
+    page.wait_for_timeout(3000)
 
