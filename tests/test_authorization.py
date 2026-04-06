@@ -1,6 +1,9 @@
 from playwright.sync_api import sync_playwright, expect  # Импорт Playwright для синхронного режима и проверки
+import pytest
 
 
+@pytest.mark.regression
+@pytest.mark.authorization
 def test_wrong_data_authorization():
     # Запуск Playwright в синхронном режиме
     with sync_playwright() as playwright:
