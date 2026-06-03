@@ -50,30 +50,11 @@ jobs:
 
       # 6. Шаг для генерации и отображения отчёта Allure
       - name: Generates Allure Report with history
-        uses: simple-elf/allure-report-action@v1.13  # Используем готовое решение из GitHub Marketplace для генерации Allure отчёта
+        uses: simple-elf/allure-report-action@v1.14  # Используем готовое решение из GitHub Marketplace для генерации Allure отчёта
         if: always()  # Этот шаг тоже всегда выполняется
         with:
           allure_results: allure-results  # Указываем каталог с результатами тестов
           allure_history: allure-history  # Указываем каталог для истории отчётов Allure
-
-      - name: Create index.html for GitHub Pages
-        if: always()
-        run: |
-          cat > allure-history/index.html << 'EOF'
-          <!DOCTYPE html>
-          <html>
-          <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="refresh" content="0; url=./export/index.html">
-          <title>Allure Report</title>
-          <script>window.location.href = "./export/index.html";</script>
-          </head>
-          <body>
-          <p>Redirecting to <a href="./export/index.html">Allure Report</a>...</p>
-          </body>
-          </html>
-          EOF
-          echo "✅ index.html created"
 
       # 7. Шаг для деплоя отчёта Allure на GitHub Pages, чтобы его можно было просматривать в браузере
       - name: Deploy report to Github Pages
