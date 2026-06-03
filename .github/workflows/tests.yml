@@ -60,20 +60,20 @@ jobs:
         if: always()
         run: |
           cat > allure-history/index.html << 'EOF'
-      <!DOCTYPE html>
-      <html>
-      <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="refresh" content="0; url=./export/index.html">
-      <title>Allure Report</title>
-      <script>window.location.href = "./export/index.html";</script>
-      </head>
-      <body>
-      <p>Redirecting to <a href="./export/index.html">Allure Report</a>...</p>
-      </body>
-      </html>
-      EOF
-      echo "✅ index.html created"
+          <!DOCTYPE html>
+          <html>
+          <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="refresh" content="0; url=./export/index.html">
+          <title>Allure Report</title>
+          <script>window.location.href = "./export/index.html";</script>
+          </head>
+          <body>
+          <p>Redirecting to <a href="./export/index.html">Allure Report</a>...</p>
+          </body>
+          </html>
+          EOF
+          echo "✅ index.html created"
 
       # 7. Шаг для деплоя отчёта Allure на GitHub Pages, чтобы его можно было просматривать в браузере
       - name: Deploy report to Github Pages
